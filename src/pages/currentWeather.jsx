@@ -11,9 +11,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import { WiHumidity, WiFog, WiSunrise, WiSunset, WiStrongWind, WiThermometer } from "weather-icons-react";
 
 const CurrentWeather = () => {
-
-    const [lat, setLat] = useState(6.927079);
-    const [lon, setLon] = useState(79.861244);
     const [location, setLocation] = useState('Colombo');
 
     const [temp, setTemp] = useState(null);
@@ -22,13 +19,12 @@ const CurrentWeather = () => {
     const [description, setDescription] = useState(null);
     const [icon, setIcon] = useState(null);
     const [city, setCity] = useState(null);
-    const [country, setCountry] = useState(null);
     const [feelsLike, setFeelsLike] = useState(null);
     const [visibility, setVisibility] = useState(null);
     const [sunrise, setSunrise] = useState(null);
     const [sunset, setSunset] = useState(null);
 
-    const APIKEY = process.env.WEATHER_API_KEY;
+    const APIKEY = 'f943bd8cd11a79f3f66214d08694df2d';
 
     const formatTime = (timestamp) => { //format the timestamp to time
         const date = new Date(timestamp * 1000);
@@ -47,7 +43,6 @@ const CurrentWeather = () => {
             setDescription(response.data.weather[0].description);
             setIcon(response.data.weather[0].icon);
             setCity(response.data.name);
-            setCountry(response.data.sys.country);
             setFeelsLike(response.data.main.feels_like);
             setVisibility(response.data.visibility / 1000);
             setSunrise(formatTime(response.data.sys.sunrise));
