@@ -28,7 +28,7 @@ const CurrentWeather = () => {
     const [sunrise, setSunrise] = useState(null);
     const [sunset, setSunset] = useState(null);
 
-    const APIKEY = 'f943bd8cd11a79f3f66214d08694df2d';
+    const APIKEY = process.env.WEATHER_API_KEY;
 
     const formatTime = (timestamp) => { //format the timestamp to time
         const date = new Date(timestamp * 1000);
